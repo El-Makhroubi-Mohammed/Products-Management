@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Activity2.Models.ProductModel>
+
+<p>
+    <a asp-action="ShowCreateForm">Create New</a>
+</p>
+
+
+<div class="container d-flex flex-wrap">
+    @foreach (var item in Model)
+    {
+    <div id="card-number-@item.Id">
+        <partial name="_productCard" model="item" />
+    </div>
+    }
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Id" class="control-label">Id</label>
+                    <input id="modal-input-id" for="Id" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label">Name</label>
+                    <input id="modal-input-name" for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Price" class="control-label">Price</label>
+                    <input id="modal-input-price" for="Price" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Description" class="control-label">Description</label>
+                    <input id="modal-input-description" for="Description" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="save-button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
